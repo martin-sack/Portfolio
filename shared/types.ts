@@ -1,0 +1,1 @@
+// This file can contain shared types between client and server
