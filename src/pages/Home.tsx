@@ -15,10 +15,27 @@ import CTA from "@/components/CTA";
 import GitHubStats from "@/components/GitHubStats";
 import CaseStudies from "@/components/CaseStudies";
 import { useTheme } from "@/components/ThemeProvider";
-import { MessageSquare, MapPin, BookOpen,Code,Brain,Zap,Database,Cpu,Globe,Smartphone,Cloud} from "lucide-react";
+import { MessageSquare, MapPin, BookOpen, Code, Brain, Zap, Database, Cpu, Globe, Smartphone, Cloud, Music, Heart } from "lucide-react";
 
-//todo: remove mock functionality - replace with real project data
 const projects = [
+  {
+    title: "JamFind – AI-Powered Music Discovery",
+    description: "A multi-platform African music discovery website that ranks playlists and tracks based on popularity, tipping, and engagement. Artists and fans interact through real-time feedback, analytics, and gamified charts, all powered by a smart AI recommendation engine.",
+    icon: Music,
+    technologies: ["React", "Next.js", "Tailwind CSS", "Supabase", "Node.js", "Spotify API", "AI Recommendations"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/martin-sack/jamfind",
+    featured: true
+  },
+  {
+    title: "Impact Bridge – Community Investment Platform",
+    description: "A web platform connecting local African entrepreneurs with global donors and supporters. Users propose real projects (e.g. farms, boreholes, small businesses), and backers contribute through a transparent, story-driven donation model. Includes project tracking, updates, and contributor dashboards.",
+    icon: Heart,
+    technologies: ["React", "Prisma", "Node.js", "MySQL", "NextAuth", "Mapbox", "Donation API"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/martin-sack/impact-bridge",
+    featured: true
+  },
   {
     title: "Geospatial Artifact Discovery",
     description: "Interactive website where users click around an interactive map to find hidden historical artifacts and treasures, earning points and unlocking new areas as they explore different geographical locations.",
@@ -26,21 +43,23 @@ const projects = [
     technologies: ["JavaScript", "Geospatial APIs", "Interactive Maps", "Virtual Environment"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
-    featured: true
+    featured: false
   },
   {
     title: "Personal AI Diary with RAG",
     description: "Smart journaling website with AI insights using Retrieval-Augmented Generation to provide personalized recommendations and emotional analysis.",
     icon: BookOpen,
     technologies: ["RAG", "LangChain", "Next.js", "Vector DB", "AI"],
-    githubUrl: "https://github.com"
+    githubUrl: "https://github.com",
+    featured: false
   },
   {
     title: "Whisper Voice Translator",
     description: "Simple voice translation website that helps people communicate across languages. Perfect for travelers and language learners.",
     icon: MessageSquare,
     technologies: ["OpenAI API", "JavaScript", "HTML", "Web Speech API"],
-    githubUrl: "https://github.com"
+    githubUrl: "https://github.com",
+    featured: false
   },
   {
     title: "Coding Games Website",
@@ -48,7 +67,8 @@ const projects = [
     icon: Code,
     technologies: ["React", "Node.js", "MongoDB", "JavaScript", "HTML5"],
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com"
+    githubUrl: "https://github.com",
+    featured: false
   }
 ];
 

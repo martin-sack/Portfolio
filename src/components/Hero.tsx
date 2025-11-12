@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
-// import profileImage from "@assets/IMG_0301_1758023295574.jpeg";
-const profileImage = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Martin";
+const profileImage = "/IMG_0301.JPG";
 
 export default function Hero() {
   const handleExploreWork = () => {
