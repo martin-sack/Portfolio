@@ -23,7 +23,7 @@ const projects = [
     description: "A multi-platform African music discovery website that ranks playlists and tracks based on popularity, tipping, and engagement. Artists and fans interact through real-time feedback, analytics, and gamified charts, all powered by a smart AI recommendation engine.",
     icon: Music,
     technologies: ["React", "Next.js", "Tailwind CSS", "Supabase", "Node.js", "Spotify API", "AI Recommendations"],
-    liveUrl: "https://example.com",
+    liveUrl: "https://jam-find.vercel.app/",
     githubUrl: "https://github.com/martin-sack/jamfind",
     featured: true
   },
@@ -32,7 +32,7 @@ const projects = [
     description: "A web platform connecting local African entrepreneurs with global donors and supporters. Users propose real projects (e.g. farms, boreholes, small businesses), and backers contribute through a transparent, story-driven donation model. Includes project tracking, updates, and contributor dashboards.",
     icon: Heart,
     technologies: ["React", "Prisma", "Node.js", "MySQL", "NextAuth", "Mapbox", "Donation API"],
-    liveUrl: "https://example.com",
+    liveUrl: "https://impact-bridge.netlify.app/",
     githubUrl: "https://github.com/martin-sack/impact-bridge",
     featured: true
   },
@@ -50,6 +50,7 @@ const projects = [
     description: "Smart journaling website with AI insights using Retrieval-Augmented Generation to provide personalized recommendations and emotional analysis.",
     icon: BookOpen,
     technologies: ["RAG", "LangChain", "Next.js", "Vector DB", "AI"],
+    liveUrl: "https://rag-diary-jb8w.vercel.app/",
     githubUrl: "https://github.com",
     featured: false
   },
