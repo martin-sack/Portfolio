@@ -108,8 +108,9 @@ export default function Hero() {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => window.open("https://www.linkedin.com/in/martin-azumah-sackey-783063332/", "_blank")}
+                onClick={() => window.open("https://www.linkedin.com/in/martin-azumah-sackey-783063332/", "_blank", "noopener,noreferrer")}
                 className="text-muted-foreground hover:text-ring"
+                title="Connect on LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </Button>

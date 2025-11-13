@@ -57,11 +57,15 @@ export default function Contact() {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="w-5 h-5 text-ring" />
-                <span>lennyymartin773@gmail.com</span>
+                <a href="mailto:lennyymartin773@gmail.com" className="hover:text-ring transition-colors">
+                  lennyymartin773@gmail.com
+                </a>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Phone className="w-5 h-5 text-ring" />
-                <span>0553910064</span>
+                <a href="tel:+233553910064" className="hover:text-ring transition-colors">
+                  0553910064
+                </a>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="w-5 h-5 text-ring" />
