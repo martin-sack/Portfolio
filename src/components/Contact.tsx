@@ -31,10 +31,10 @@ export default function Contact() {
       };
 
       const result = await emailjs.send(
-        'service_portfolio', // Service ID - you'll create this
-        'template_contact', // Template ID - you'll create this
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         templateParams,
-        'YOUR_PUBLIC_KEY' // Public Key - you'll get this from EmailJS
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       console.log('EmailJS Success:', result);
