@@ -19,9 +19,11 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
+    watch: {
+      usePolling: true,
+    },
     fs: {
-      strict: true,
-      deny: ["**/.*"],
+      strict: false,
     },
   },
 });

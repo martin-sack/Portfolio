@@ -26,6 +26,7 @@ export default function Navigation({ isDark, toggleTheme }: NavigationProps) {
     { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
     { label: "Experience", href: "#experience" },
+    { label: "Certifications", href: "#certifications" },
     { label: "Contact", href: "#contact" },
   ];
 

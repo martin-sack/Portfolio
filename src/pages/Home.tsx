@@ -14,6 +14,7 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import GitHubStats from "@/components/GitHubStats";
 import CaseStudies from "@/components/CaseStudies";
+import CertificationsGallery from "@/components/CertificationsGallery";
 import { useTheme } from "@/components/ThemeProvider";
 import { MessageSquare, MapPin, BookOpen, Code, Brain, Zap, Database, Cpu, Globe, Smartphone, Cloud, Music, Heart } from "lucide-react";
 
@@ -139,6 +140,9 @@ export default function Home() {
 
       {/* Experience Section */}
       <Experience />
+
+      {/* Certifications Gallery Section */}
+      <CertificationsGallery />
 
       {/* Testimonials Section */}
       <Testimonials />
