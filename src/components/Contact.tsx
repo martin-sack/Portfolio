@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,33 +21,28 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Create form data for Formspree
-      const form = new FormData();
-      form.append('name', formData.name);
-      form.append('email', formData.email);
-      form.append('subject', formData.subject);
-      form.append('message', formData.message);
-      form.append('_replyto', formData.email);
-      
-      // Using Formspree email endpoint - will send confirmation on first use
-      const response = await fetch('https://formspree.io/f/lennyymartin773@gmail.com', {
-        method: 'POST',
-        body: form,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+      // Using EmailJS - reliable and free
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'lennyymartin773@gmail.com',
+      };
 
-      if (response.ok) {
-        setFormData({ name: "", email: "", subject: "", message: "" });
-        alert("Message sent successfully! I'll get back to you soon.");
-      } else {
-        const result = await response.json();
-        console.error('Formspree error:', result);
-        alert("Failed to send message. Please try emailing me directly at lennyymartin773@gmail.com");
-      }
+      const result = await emailjs.send(
+        'service_portfolio', // Service ID - you'll create this
+        'template_contact', // Template ID - you'll create this
+        templateParams,
+        'YOUR_PUBLIC_KEY' // Public Key - you'll get this from EmailJS
+      );
+
+      console.log('EmailJS Success:', result);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      alert("Message sent successfully! I'll get back to you soon.");
+      
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('EmailJS Error:', error);
       alert("Failed to send message. Please try emailing me directly at lennyymartin773@gmail.com");
     } finally {
       setIsSubmitting(false);
