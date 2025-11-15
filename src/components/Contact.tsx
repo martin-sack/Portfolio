@@ -18,13 +18,41 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    console.log("Form submitted:", formData);
-    
-    setTimeout(() => {
+
+    try {
+      // Using Web3Forms to send emails to lennyymartin773@gmail.com
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: 'Portfolio Contact Form',
+          to_email: 'lennyymartin773@gmail.com',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        alert("Message sent successfully! I'll get back to you soon.");
+      } else {
+        alert("Failed to send message. Please try emailing me directly at lennyymartin773@gmail.com");
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert("Failed to send message. Please try emailing me directly at lennyymartin773@gmail.com");
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      alert("Message sent! Thank you for reaching out.");
-    }, 1500);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
