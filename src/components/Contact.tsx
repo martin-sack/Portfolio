@@ -20,31 +20,29 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Using Web3Forms to send emails to lennyymartin773@gmail.com
-      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      // Create form data for Formspree
+      const form = new FormData();
+      form.append('name', formData.name);
+      form.append('email', formData.email);
+      form.append('subject', formData.subject);
+      form.append('message', formData.message);
+      form.append('_replyto', formData.email);
       
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // Using Formspree email endpoint - will send confirmation on first use
+      const response = await fetch('https://formspree.io/f/lennyymartin773@gmail.com', {
         method: 'POST',
+        body: form,
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: accessKey,
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          from_name: 'Portfolio Contact Form',
-          to_email: 'lennyymartin773@gmail.com',
-        }),
+          'Accept': 'application/json'
+        }
       });
 
-      const result = await response.json();
-
-      if (result.success) {
+      if (response.ok) {
         setFormData({ name: "", email: "", subject: "", message: "" });
         alert("Message sent successfully! I'll get back to you soon.");
       } else {
+        const result = await response.json();
+        console.error('Formspree error:', result);
         alert("Failed to send message. Please try emailing me directly at lennyymartin773@gmail.com");
       }
     } catch (error) {

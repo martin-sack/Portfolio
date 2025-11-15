@@ -4,27 +4,37 @@ Your contact form is configured to send messages to: **lennyymartin773@gmail.com
 
 ## ✅ Setup Complete!
 
-Your Web3Forms access key is already configured in `.env.local` and ready to use!
+Your contact form is now using **Formspree** (more reliable than Web3Forms).
+
+### Current Configuration
+
+- **Service**: Formspree
+- **Form ID**: xnnqbpvb
+- **Sends to**: lennyymartin773@gmail.com
+- **No API key needed** - works immediately!
 
 ### Test Your Contact Form
 
-1. **Restart your dev server** (if running):
-   ```bash
-   npm run dev
-   ```
-
-2. **Go to the Contact section** on your portfolio
-
+1. **Go to your portfolio**: http://localhost:5173 (or your deployed URL)
+2. **Navigate to the Contact section**
 3. **Submit a test message**
-
 4. **Check your email**: lennyymartin773@gmail.com
 
 ### Important Notes
 
-- ✅ Access key is stored securely in `.env.local`
-- ✅ `.env.local` is in `.gitignore` (won't be pushed to GitHub)
+- ✅ No environment variables needed
+- ✅ Works on localhost and production
 - ✅ Form sends to: lennyymartin773@gmail.com
 - ✅ Includes sender's name, email, subject, and message
+- ✅ Free tier: 50 submissions/month
+
+### Why Formspree?
+
+Web3Forms access key was blocked/restricted. Formspree is:
+- More reliable for new accounts
+- No verification delays
+- Works immediately
+- Better spam protection
 
 ## ✅ What's Already Configured
 
