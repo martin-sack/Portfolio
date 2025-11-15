@@ -13,7 +13,7 @@ const certifications = [
     type: "Certification",
     date: "2025",
     icon: Award,
-    file: "/School — https:brm-certview.oracle.com:ords:certview:ecertificate?ssn=OC6693521&trackId=OCI25AICFA&key=972ab26435a497ef1424cdb1c8dc1276e613ca8e.pdf",
+    file: "/Oracle Cloud Infrastructure 2025 AI Foundations Associate.pdf",
     description: "Associate-level certification in AI foundations on Oracle Cloud Infrastructure"
   },
   {

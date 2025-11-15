@@ -86,8 +86,8 @@ export default function Hero() {
               className="border-ring/50 text-ring hover:bg-ring/10 text-lg px-8 py-6"
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = '/resume-AI.pdf';
-                link.download = 'Martin-Azumah-Sackey-Resume.pdf';
+                link.href = '/MARTIN SACKEY RESUME.pdf';
+                link.download = 'Martin-Sackey-Resume.pdf';
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
