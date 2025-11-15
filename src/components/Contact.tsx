@@ -44,15 +44,12 @@ export default function Contact() {
         throw new Error('EmailJS configuration is missing. Please check environment variables.');
       }
 
-      // Using EmailJS - reliable and free
-      // Template variables must match your EmailJS template exactly
+      // Using EmailJS - template variables must match exactly
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
-        to_name: 'Martin Sackey',
         subject: formData.subject,
         message: formData.message,
-        reply_to: formData.email,
       };
 
       console.log('Sending email with params:', templateParams);
