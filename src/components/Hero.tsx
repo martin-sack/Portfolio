@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
+import { trackDownload, trackExternalLink } from "@/utils/analytics";
 const profileImage = "/IMG_0301.JPG";
 
 export default function Hero() {
@@ -85,6 +86,7 @@ export default function Hero() {
               size="lg"
               className="border-ring/50 text-ring hover:bg-ring/10 text-lg px-8 py-6"
               onClick={() => {
+                trackDownload('Resume');
                 const link = document.createElement('a');
                 link.href = '/MARTIN SACKEY RESUME.pdf';
                 link.download = 'Martin-Sackey-Resume.pdf';
@@ -104,7 +106,10 @@ export default function Hero() {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => window.open("https://github.com/martin-sack", "_blank")}
+                onClick={() => {
+                  trackExternalLink('GitHub');
+                  window.open("https://github.com/martin-sack", "_blank");
+                }}
                 className="text-muted-foreground hover:text-ring"
               >
                 <Github className="w-5 h-5" />
@@ -112,7 +117,10 @@ export default function Hero() {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => window.open("https://www.linkedin.com/in/martin-azumah-sackey-783063332/", "_blank", "noopener,noreferrer")}
+                onClick={() => {
+                  trackExternalLink('LinkedIn');
+                  window.open("https://www.linkedin.com/in/martin-azumah-sackey-783063332/", "_blank", "noopener,noreferrer");
+                }}
                 className="text-muted-foreground hover:text-ring"
                 title="Connect on LinkedIn"
               >

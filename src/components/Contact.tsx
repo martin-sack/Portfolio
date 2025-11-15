@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
 import emailjs from '@emailjs/browser';
+import { trackFormSubmit } from "@/utils/analytics";
 
 export default function Contact() {
   // Initialize EmailJS
@@ -61,6 +62,10 @@ export default function Contact() {
       );
 
       console.log('EmailJS Success:', result);
+      
+      // Track successful form submission
+      trackFormSubmit('Contact Form');
+      
       setFormData({ name: "", email: "", subject: "", message: "" });
       alert("Message sent successfully! I'll get back to you soon.");
       
