@@ -23,7 +23,7 @@ const certifications = [
     type: "Certification",
     date: "2024",
     icon: Award,
-    file: "/martin.sackey-AI-Security-038-Governance-AI-Governance-Certification-Securiti-Education.pdf",
+    file: "/AI Securitiy $ Governance.pdf",
     description: "Comprehensive training on AI security and governance frameworks"
   },
   {
@@ -33,7 +33,7 @@ const certifications = [
     type: "Certification",
     date: "2024",
     icon: Award,
-    file: "/martin.sackey-Certification-Exam-DSPM-Fundamentals-Securiti-Education.pdf",
+    file: "/DSPM Fundamentals.pdf",
     description: "Fundamentals of data security posture management"
   },
   {
@@ -48,42 +48,22 @@ const certifications = [
   },
   {
     id: 5,
-    title: "Introducing Generative AI with AWS",
-    issuer: "Amazon Web Services",
-    type: "Certification",
-    date: "2024",
-    icon: Award,
-    file: "/Learn the Latest Tech Skills; Advance Your Career | Udacity.pdf",
-    description: "Foundation course on generative AI with AWS services"
-  },
-  {
-    id: 6,
-    title: "Latest Tech Skills Training",
-    issuer: "Udacity",
-    type: "Course Completion",
-    date: "2024",
-    icon: GraduationCap,
-    file: "/Learn the Latest Tech Skills; Advance Your Career | Udacity.pdf",
-    description: "Advanced technology skills and career development"
-  },
-  {
-    id: 7,
     title: "Bachelor's Degree",
     issuer: "University",
     type: "Degree",
     date: "2024",
     icon: GraduationCap,
-    file: "/diploma.pdf",
+    file: "/Bachelors Degree.pdf",
     description: "Bachelor's degree in Computer Science / Technology"
   },
   {
-    id: 8,
+    id: 6,
     title: "Academic Transcript",
     issuer: "University",
     type: "Transcript",
     date: "2024",
     icon: FileText,
-    file: "/TE1EYSCJ.pdf",
+    file: "/Transcript.pdf",
     description: "Official academic transcript and course records"
   }
 ];
@@ -106,6 +86,7 @@ export default function CertificationsGallery() {
 
   // Show only first 3 certifications when collapsed
   const displayedCertifications = isExpanded ? certifications : certifications.slice(0, 3);
+  const totalCount = certifications.length;
 
   return (
     <section id="certifications" className="py-20 px-8 bg-muted/30">
@@ -198,7 +179,7 @@ export default function CertificationsGallery() {
             ) : (
               <>
                 <ChevronDown className="w-5 h-5 mr-2" />
-                View All {certifications.length} Certifications
+                View All {totalCount} Certifications
               </>
             )}
           </Button>
