@@ -4,10 +4,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from '@emailjs/browser';
 
 export default function Contact() {
+  // Initialize EmailJS
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init(publicKey);
+      console.log('EmailJS initialized');
+    }
+  }, []);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,29 +29,48 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
+      // Debug: Check environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      console.log('EmailJS Config:', {
+        serviceId: serviceId ? 'Set' : 'Missing',
+        templateId: templateId ? 'Set' : 'Missing',
+        publicKey: publicKey ? 'Set' : 'Missing',
+      });
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration is missing. Please check environment variables.');
+      }
+
       // Using EmailJS - reliable and free
+      // Template variables must match your EmailJS template exactly
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
+        to_name: 'Martin Sackey',
         subject: formData.subject,
         message: formData.message,
-        to_email: 'lennyymartin773@gmail.com',
+        reply_to: formData.email,
       };
 
+      console.log('Sending email with params:', templateParams);
+
       const result = await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        templateParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        serviceId,
+        templateId,
+        templateParams
       );
 
       console.log('EmailJS Success:', result);
       setFormData({ name: "", email: "", subject: "", message: "" });
       alert("Message sent successfully! I'll get back to you soon.");
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('EmailJS Error:', error);
-      alert("Failed to send message. Please try emailing me directly at lennyymartin773@gmail.com");
+      console.error('Error details:', error.text || error.message);
+      alert(`Failed to send message: ${error.text || error.message}. Please try emailing me directly at lennyymartin773@gmail.com`);
     } finally {
       setIsSubmitting(false);
     }
