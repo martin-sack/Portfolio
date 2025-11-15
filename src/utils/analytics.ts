@@ -1,47 +1,38 @@
-import ReactGA from 'react-ga4';
+import { track } from '@vercel/analytics';
 
-// Initialize Google Analytics
+// Initialize analytics (Vercel Analytics auto-initializes)
 export const initGA = () => {
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-  
-  if (measurementId) {
-    ReactGA.initialize(measurementId);
-    console.log('Google Analytics initialized');
-  } else {
-    console.warn('Google Analytics Measurement ID not found');
-  }
+  console.log('Vercel Analytics initialized');
 };
 
-// Track page views
+// Track page views (Vercel Analytics tracks automatically)
 export const trackPageView = (path: string) => {
-  ReactGA.send({ hitType: 'pageview', page: path });
+  // Vercel Analytics tracks page views automatically
+  console.log('Page view:', path);
 };
 
 // Track custom events
 export const trackEvent = (category: string, action: string, label?: string) => {
-  ReactGA.event({
-    category,
-    action,
-    label,
-  });
+  const eventName = `${category}_${action}`;
+  track(eventName, { label });
 };
 
 // Track button clicks
 export const trackButtonClick = (buttonName: string) => {
-  trackEvent('Button', 'Click', buttonName);
+  track('button_click', { button: buttonName });
 };
 
 // Track form submissions
 export const trackFormSubmit = (formName: string) => {
-  trackEvent('Form', 'Submit', formName);
+  track('form_submit', { form: formName });
 };
 
 // Track downloads
 export const trackDownload = (fileName: string) => {
-  trackEvent('Download', 'Click', fileName);
+  track('download', { file: fileName });
 };
 
 // Track external links
 export const trackExternalLink = (url: string) => {
-  trackEvent('External Link', 'Click', url);
+  track('external_link', { url });
 };
