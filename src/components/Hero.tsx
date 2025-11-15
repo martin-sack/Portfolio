@@ -85,8 +85,12 @@ export default function Hero() {
               size="lg"
               className="border-ring/50 text-ring hover:bg-ring/10 text-lg px-8 py-6"
               onClick={() => {
-                // In a real app, this would download the resume
-                console.log("Download resume clicked");
+                const link = document.createElement('a');
+                link.href = '/resume-AI.pdf';
+                link.download = 'Martin-Azumah-Sackey-Resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
               }}
             >
               <Download className="mr-2 w-5 h-5" />
